@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server section of Labrador Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Segun Konibire",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
