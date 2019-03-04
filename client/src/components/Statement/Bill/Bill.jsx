@@ -22,7 +22,7 @@ class Bill extends Component {
         this.state = {
             summary: {}
         }
-    }
+    };
 
     componentDidMount(){
 
@@ -41,7 +41,7 @@ class Bill extends Component {
             .catch(error => {
                 console.log('Fetch error: ' + error);
             });
-    }
+    };
 
     render() {
 

@@ -8,7 +8,8 @@ injectGlobal`
 `;
 
 const StatementContainer = styled.div`   
-    width: 900px;
+    max-width: 900px;
+    width: 80%;
     margin: 0 auto;
 `;
 
@@ -25,7 +26,8 @@ export const NavigationBarItem = styled.li`
 
 export const StatementTable = styled.table`
     padding: 10px;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     border: 1px solid #cccccc;
 `;
 
@@ -33,19 +35,28 @@ export const SummaryRow = styled.tr`
 `;
 
 export const StatementLabel = styled.td`
-    padding-right: 50px;
     padding-bottom: ${props => props.highlight ? '10px' : '5px'};
     padding-top: ${props => props.highlight ? '10px' : '5px'};
-    text-align: left;
     border-bottom: ${props => props.highlight ? '2px solid #cccccc' : null};
     font-weight: ${props => props.highlight ? 'bold' : null};
-    font-size: ${props => props.total ? '1.4em' : '1em'}
-    
+    font-size: ${props => props.total ? '1.4em' : '1em'}  
 `;
+
+export const ContactList = styled(NavigationBar)`
+    background: whitesmoke;     
+`;
+
+export const ContactMethod = styled.li`
+     padding: 8px 15px;
+     border-bottom: 2px solid #ffffff;
+     
+`;
+
+
 
 export const StatementValue = styled(StatementLabel)`
     text-align: right;
-    padding-right: 0;
+    padding-left: 40px;
 `;
 
 export default StatementContainer;

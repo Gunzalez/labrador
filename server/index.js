@@ -15,9 +15,24 @@ const statementSummary = {
     "current": "83.49"
 };
 
+const contactDetails = {
+    methods: [
+        "hello@octopus.energy",
+        "m.me/octopusenergy",
+        "0330 808 1080",
+        "20-24 Broadwick Street, London, W1F 8HT"
+    ]
+};
+
 app.get('/api/summary', (req,res) => {
     res.status(200).send({
-        data: statementSummary,
+        data: statementSummary
+    })
+});
+
+app.get('/api/contact', (req,res) => {
+    res.status(200).send({
+        data: contactDetails
     })
 });
 
