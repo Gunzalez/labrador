@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
+import { connect } from "react-redux";
+
 import dictionary from '../../dictionary';
 
 import { StatementTable, SummaryRow, StatementLabel, StatementValue } from '../../styles';
-
-import { fetchWrapper } from '../../helpers';
 
 const StatementRow = ({ label, value, highlight, total }) => {
     return(
@@ -17,35 +17,11 @@ const StatementRow = ({ label, value, highlight, total }) => {
 
 class Bill extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            summary: {}
-        }
-    };
-
-    componentDidMount(){
-
-        fetchWrapper('summary')
-            .then(response => {
-                if(response.statusText === "OK"){
-                    return response.json();
-                }
-            })
-            .then(jsonResponse => {
-                const { data } = jsonResponse;
-                this.setState({
-                    summary: data
-                })
-            })
-            .catch(error => {
-                console.log('Fetch error: ' + error);
-            });
-    };
-
     render() {
 
-        const { summary: { period, balance, payment, current } } = this.state;
+        console.log(this.props.summary);
+
+        const { summary: { period, balance, payment, current } } = this.props;
 
         const broughtForward = (balance - payment).toFixed(2);
 
@@ -69,4 +45,11 @@ class Bill extends Component {
     }
 }
 
-export default Bill;
+const mapStateToProps = state => {
+    console.log(state);
+    return { summary: state.summary };
+};
+
+const ConnectedBill = connect(mapStateToProps)(Bill);
+
+export default ConnectedBill;
